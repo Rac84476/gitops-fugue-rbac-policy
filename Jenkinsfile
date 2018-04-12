@@ -26,11 +26,8 @@ pipeline {
           return "$GIT_BRANCH" == "master"
         }
       }
-      input {
-        message "Please review and approve this change"
-        parameters {
-          string(name: 'ApprovedBy', defaultValue: 'default', description: 'Who are you?')
-        }
+      steps {
+        input "Please review and approve this change"
       }
     }
     stage("Apply Policy") {
