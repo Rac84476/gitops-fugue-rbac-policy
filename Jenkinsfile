@@ -14,9 +14,19 @@ pipeline {
     }
   }
   stages {
-    stage('Test') {
+    stage("Validate Policy") {
       steps {
-        sh 'fugue status'
+        sh "lwc Policy.lw"
+      }
+    }
+    stage("Snapshot Policy") {
+      steps {
+        sh "lwc -s snapshot lwc Policy.lw -o lwc Policy.tar.gz"
+      }
+    }
+    stage("Apply Policy") {
+      steps {
+        sh "fugue policy rbac-attach Policy.lw""
       }
     }
   }
