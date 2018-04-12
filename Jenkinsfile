@@ -21,7 +21,10 @@ pipeline {
     }
     stage("Approve Policy") {
       when {
-        branch "master"
+        expression {
+          GIT_BRANCH = 'origin/' + sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
+          return GIT_BRANCH == 'origin/master'
+        }
       }
       input {
         message "Please review and approve this change"
