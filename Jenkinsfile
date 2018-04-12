@@ -17,6 +17,7 @@ pipeline {
     stage("Validate Policy") {
       steps {
         sh "lwc Policy.lw"
+        echo "$GIT_BRANCH"
       }
     }
     stage("Approve Policy") {
