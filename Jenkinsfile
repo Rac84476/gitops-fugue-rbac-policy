@@ -17,14 +17,11 @@ pipeline {
     stage("Validate Policy") {
       steps {
         sh "lwc Policy.lw"
-        echo "$GIT_BRANCH"
       }
     }
     stage("Approve Policy") {
       when {
-        expression {
-          return "$GIT_BRANCH" == "master"
-        }
+        branch "master"
       }
       steps {
         input "Please review and approve this change"
