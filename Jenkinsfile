@@ -20,6 +20,9 @@ pipeline {
       }
     }
     stage("Approve Policy") {
+      when {
+        branch "master"
+      }
       input {
         message "Please review and approve this change"
         parameters {
@@ -31,6 +34,9 @@ pipeline {
       }
     }
     stage("Apply Policy") {
+      when {
+        branch "master"
+      }
       steps {
         sh "fugue policy rbac-attach Policy.lw"
       }
