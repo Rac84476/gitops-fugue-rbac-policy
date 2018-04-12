@@ -21,7 +21,7 @@ pipeline {
     }
     stage("Approve Policy") {
       steps {
-        sh "lwc Policy.lw"
+        input "Do you approve this policy?"
       }
     }
     stage("Apply Policy") {
