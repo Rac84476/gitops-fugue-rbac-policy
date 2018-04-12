@@ -8,9 +8,9 @@ pipeline {
   }
   agent {
     docker {
-      image "225195660222.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/fugue/client:latest"
-      registryUrl "https://225195660222.dkr.ecr.us-east-1.amazonaws.com/fugue/client"
-      registryCredentialsId "ecr:us-east-1:ECS_REPO"
+      image "225195660222.dkr.ecr.{$AWS_DEFAULT_REGION}.amazonaws.com/fugue/client:latest"
+      registryUrl "https://225195660222.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/fugue/client"
+      registryCredentialsId "ecr:${AWS_DEFAULT_REGION}:ECS_REPO"
     }
   }
   stages {
