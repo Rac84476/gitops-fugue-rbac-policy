@@ -32,9 +32,6 @@ pipeline {
           string(name: 'ApprovedBy', defaultValue: 'default', description: 'Who are you?')
         }
       }
-      steps {
-        input "Please review and approve this change"
-      }
     }
     stage("Apply Policy") {
       when {
