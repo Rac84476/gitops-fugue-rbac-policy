@@ -23,7 +23,6 @@ pipeline {
       steps {
         input {
           message "Please review and approve this change"
-          ok "This change is approved!"
         }
       }
     }
