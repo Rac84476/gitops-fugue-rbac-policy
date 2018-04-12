@@ -21,7 +21,10 @@ pipeline {
     }
     stage("Approve Policy") {
       steps {
-        input "Do you approve this policy?"
+        input {
+          message "Please review and approve this change"
+          ok "This change is approved!"
+        }
       }
     }
     stage("Apply Policy") {
