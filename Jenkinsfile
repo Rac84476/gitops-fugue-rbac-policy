@@ -19,6 +19,11 @@ pipeline {
         sh "lwc Policy.lw"
       }
     }
+    stage("Approve Policy") {
+      steps {
+        sh "lwc Policy.lw"
+      }
+    }
     stage("Apply Policy") {
       steps {
         sh "fugue policy rbac-attach Policy.lw"
