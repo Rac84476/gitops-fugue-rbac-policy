@@ -26,7 +26,7 @@ pipeline {
     }
     stage("Apply Policy") {
       steps {
-        sh "fugue policy rbac-attach Policy.lw""
+        sh "fugue policy rbac-attach Policy.lw"
       }
     }
   }
